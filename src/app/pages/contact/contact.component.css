@@ -1,0 +1,185 @@
+.contact-section {
+    padding: 5rem 1rem;
+    background-color: #ffffff;
+}
+
+
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr 2fr;
+    }
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: #222;
+}
+
+.highlight-blue {
+    color: var(--primary-color);
+}
+
+/* Contact Info Layout */
+.info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.info-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+}
+
+.info-list i {
+    font-size: 1.25rem;
+    color: #333;
+    width: 30px;
+    margin-top: 0.25rem;
+}
+
+.info-text p {
+    margin: 0;
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Contact Form Layout */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 600px) {
+    .form-row {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    color: #ef4444;
+    /* Red asterisk */
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 0.25rem;
+}
+
+.form-group input,
+.form-group textarea {
+    background-color: #f4f5f9;
+    /* Light gray */
+    border: none;
+    border-radius: 20px;
+    padding: 1rem 1.25rem;
+    font-size: 0.9rem;
+    color: #333;
+    outline: none;
+    font-family: inherit;
+    transition: background-color 0.3s ease;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+    border-radius: 20px;
+    /* Applies to textarea too according to design */
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    background-color: #e5e7eb;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #9ca3af;
+}
+
+.btn-submit {
+    background-color: #3d68ff;
+    /* Brand Blue/Indigo */
+    color: white;
+    border: none;
+    border-radius: 50px;
+    /* Capsule shape */
+    padding: 0.75rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 1rem;
+}
+
+.btn-submit:hover {
+    background-color: #2563eb;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn-submit:disabled {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.alert {
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.alert.success {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.alert.danger {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+/* Basic Icons using plain characters or emojis for now, can be replaced with real icon classes */
+.icon-address::before {
+    content: "📍";
+}
+
+.icon-phone::before {
+    content: "📞";
+}
+
+.icon-email::before {
+    content: "✉️";
+}
+
+.icon-clock::before {
+    content: "⏱️";
+}

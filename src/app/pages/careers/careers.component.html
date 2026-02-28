@@ -1,0 +1,98 @@
+<div class="careers-page">
+    <section class="page-hero">
+        <div class="hero-bg"
+            style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
+        </div>
+        <div class="container hero-content">
+            <h1 class="anime-liquid"><span class="liquid-line" data-text="Join Our Workforce">Join Our Workforce</span>
+            </h1>
+            <p>Explore exciting opportunities to build your career with AGC On Board Workforce Solutions L.L.C. We are
+                always looking for dedicated professionals.</p>
+        </div>
+    </section>
+
+    <div class="container section-padding">
+        <h2 class="section-title-center">Current Openings</h2>
+        <div class="jobs-grid">
+            <div class="job-card" *ngFor="let job of jobs">
+                <div class="job-header">
+                    <h3>{{ job.title }}</h3>
+                    <span class="job-badge">{{ job.category }}</span>
+                </div>
+                <p class="job-desc">{{ job.description }}</p>
+                <ul class="job-details">
+                    <li><i class="icon-location"></i> {{ job.location }}</li>
+                    <li><i class="icon-type"></i> {{ job.type }}</li>
+                </ul>
+                <button class="btn btn-primary btn-apply" (click)="openApplyModal(job)">Apply Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Application Modal -->
+    <div class="modal-overlay" *ngIf="isModalOpen" (click)="closeApplyModal()">
+        <div class="modal-content" (click)="$event.stopPropagation()">
+            <button class="btn-close" (click)="closeApplyModal()">&times;</button>
+            <h3 class="modal-title">Apply for {{ selectedJob?.title }}</h3>
+
+            <form (ngSubmit)="submitApplication(applicationForm)" #applicationForm="ngForm" class="application-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name *</label>
+                        <input type="text" id="firstName" name="firstName" [(ngModel)]="applicationData.firstName"
+                            required #firstName="ngModel" placeholder="John">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name *</label>
+                        <input type="text" id="lastName" name="lastName" [(ngModel)]="applicationData.lastName" required
+                            #lastName="ngModel" placeholder="Doe">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" [(ngModel)]="applicationData.email" required email
+                            #email="ngModel" placeholder="john@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="mobileNumber">Mobile Number *</label>
+                        <input type="tel" id="mobileNumber" name="mobileNumber"
+                            [(ngModel)]="applicationData.mobileNumber" required #mobileNumber="ngModel"
+                            placeholder="+971 5X XXX XXXX">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="country">Country of Residence *</label>
+                    <select id="country" name="country" [(ngModel)]="applicationData.country" required
+                        #country="ngModel">
+                        <option value="" disabled selected>Select your country</option>
+                        <option value="United Arab Emirates">United Arab Emirates</option>
+                        <option value="India">India</option>
+                        <option value="Pakistan">Pakistan</option>
+                        <option value="Philippines">Philippines</option>
+                        <option value="Nepal">Nepal</option>
+                        <option value="Bangladesh">Bangladesh</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="coverLetter">Cover Letter / Note (Optional)</label>
+                    <textarea id="coverLetter" name="coverLetter" rows="4" [(ngModel)]="applicationData.coverLetter"
+                        placeholder="Tell us why you are a great fit..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit" [disabled]="isSubmitting || !applicationForm.form.valid">
+                    {{ isSubmitting ? 'Submitting...' : 'Submit Application' }}
+                </button>
+
+                <div *ngIf="submitSuccess" class="alert success text-center mt-3">Your application has been submitted
+                    successfully!</div>
+                <div *ngIf="submitError" class="alert danger text-center mt-3">An error occurred while submitting your
+                    application. Please try again.</div>
+            </form>
+        </div>
+    </div>
+</div>

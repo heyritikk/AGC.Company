@@ -1,0 +1,279 @@
+/* General Styles */
+.about-page {
+    font-family: 'Inter', sans-serif;
+    color: #333;
+}
+
+.section-padding {
+    padding: 5rem 1rem;
+}
+
+.section-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: #111;
+}
+
+.section-title-center {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #111;
+    text-align: center;
+}
+
+.subtitle-center {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+
+
+/* 2. About Us Split Section */
+.about-split {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    align-items: center;
+}
+
+@media (min-width: 900px) {
+    .about-split {
+        flex-direction: row;
+    }
+}
+
+.about-content,
+.about-image-side {
+    flex: 1;
+}
+
+.lined-title {
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.lined-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+}
+
+.about-text-content {
+    line-height: 1.8;
+    color: #444;
+    font-size: 1.05rem;
+}
+
+.about-image-side img {
+    width: 100%;
+    height: 400px;
+    /* Force height to match text roughly */
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* 3. Mission & Vision Block */
+.mission-vision-block {
+    background-color: #f9f9f9;
+}
+
+.mv-content-box {
+    background: #fff;
+    padding: 3rem 4rem;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+    border-left: 6px solid var(--primary-color);
+    /* Blue border */
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.mv-text-content {
+    text-align: center;
+    line-height: 1.8;
+    color: #444;
+    font-size: 1.1rem;
+}
+
+/* 4. How do we work? Section */
+.how-we-work {
+    background-color: #fff;
+}
+
+.work-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .work-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.work-card {
+    background-color: #1a2533;
+    /* Dark Navy from screenshot */
+    color: #fff;
+    padding: 3rem 2rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.work-card:hover {
+    transform: translateY(-5px);
+}
+
+.icon-circle {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid;
+}
+
+.icon-blue {
+    border-color: #3b82f6;
+    color: #3b82f6;
+}
+
+.icon-outline {
+    border-color: #fff;
+    color: #fff;
+}
+
+.icon-blue-alt {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.icon-svg {
+    width: 28px;
+    height: 28px;
+}
+
+.work-card h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.work-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #cbd5e1;
+    /* Light gray text */
+    margin: 0;
+}
+
+/* 5. Meet Our Team Banner */
+.team-banner {
+    position: relative;
+    height: 350px;
+    background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356fce?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    /* Construction workers */
+    background-size: cover;
+    background-position: center 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+}
+
+.team-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.4);
+    /* Light overlay for contrast */
+}
+
+.team-overlay-box {
+    position: relative;
+    z-index: 10;
+    background: #fff;
+    padding: 2.5rem 3rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    text-align: center;
+}
+
+.team-overlay-box h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #111;
+}
+
+.team-overlay-box p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #444;
+    margin: 0;
+}
+
+/* 6. Blue Contact Banner */
+.contact-banner-blue {
+    background-color: var(--primary-color);
+    /* Brand blue */
+    padding: 3rem 1rem;
+}
+
+.contact-banner-blue .contact-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .contact-banner-blue .contact-content {
+        flex-direction: row;
+    }
+}
+
+.contact-text {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #111;
+    margin: 0;
+}
+
+.btn-contact-black {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    /* Capsule shape */
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-contact-black:hover {
+    background-color: #333;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}

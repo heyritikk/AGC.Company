@@ -1,0 +1,22 @@
+<section class="services-section">
+    <div class="container">
+        <h2 class="section-title">
+            Our <span class="highlight">Services</span>
+        </h2>
+
+        <div class="services-grid">
+            <div class="service-card" *ngFor="let service of services">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path [attr.d]="service.icon"></path>
+                    </svg>
+                </div>
+                <div class="service-content">
+                    <h3 class="service-title">{{ service.title }}</h3>
+                    <p class="service-description">{{ service.description }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,132 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --primary-color: #4ea0d8;
+  /* Brand Blue */
+  --secondary-color: #d83a32;
+  /* Brand Red */
+  --dark-bg: #0F0F0F;
+  --text-dark: #1A1A1A;
+  --text-gray: #4B5563;
+  --bg-gray: #F9FAFB;
+  --blue-accent: #2563EB;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: var(--bg-gray);
+  color: var(--text-dark);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* =========================================
+   Global Header & Liquid Text Animation
+   ========================================= */
+.page-hero {
+  position: relative;
+  padding: 8rem 0;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
+
+.page-hero .hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: 1;
+}
+
+.page-hero .hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.page-hero .hero-content p {
+  font-size: 1.25rem;
+  color: #f3f4f6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Liquid Animation Resets for Page Heros */
+.anime-liquid {
+  font-size: 3.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+}
+
+.liquid-line {
+  position: relative;
+  display: inline-block;
+}
+
+.liquid-line::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  color: white;
+  -webkit-text-stroke: 0;
+  border-bottom: 4px solid var(--primary-color);
+  overflow: hidden;
+  animation: fill-up 4s ease-in-out infinite;
+}
+
+@keyframes fill-up {
+
+  0%,
+  10% {
+    height: 0;
+  }
+
+  40%,
+  60% {
+    height: 100%;
+  }
+
+  90%,
+  100% {
+    height: 0;
+  }
+}

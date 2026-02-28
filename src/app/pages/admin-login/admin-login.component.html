@@ -1,0 +1,48 @@
+<div class="login-page">
+    <div class="login-container">
+        <div class="login-header">
+            <svg class="agc-logo" width="40" height="40" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path d="M25 70V40l15-10v40h-7V50h-1v20h-7z" fill="#4ea0d8" />
+                <path d="M44 70V20l15-10v25h-6V24l-3 2v38h9V45h-6v-6h12v31H44z" fill="#d83a32" />
+                <path d="M65 70V30l16 10v12h-6v-9l-4-2.5V70h6V58h4v12H65z" fill="#4ea0d8" />
+                <path d="M5 80q45-15 90 0l-5 4q-40-14-80 0l-5-4z" fill="#d83a32" />
+            </svg>
+            <h2>Admin Portal Access</h2>
+            <p>Secure login for AGC administrators</p>
+        </div>
+
+        <form (ngSubmit)="onLogin()" #loginForm="ngForm" class="login-form">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <div class="input-wrapper">
+                    <svg class="input-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                    </svg>
+                    <input type="text" id="username" name="username" [(ngModel)]="credentials.username" required
+                        placeholder="Enter username">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="input-wrapper">
+                    <svg class="input-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                        </path>
+                    </svg>
+                    <input type="password" id="password" name="password" [(ngModel)]="credentials.password" required
+                        placeholder="••••••••">
+                </div>
+            </div>
+
+            <button type="submit" class="btn-login" [disabled]="isLoading || loginForm.invalid">
+                <span *ngIf="!isLoading">Secure Login</span>
+                <span *ngIf="isLoading" class="spinner"></span>
+            </button>
+
+            <div *ngIf="errorMessage" class="error-alert">{{ errorMessage }}</div>
+        </form>
+    </div>
+</div>

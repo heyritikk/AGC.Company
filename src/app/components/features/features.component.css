@@ -1,0 +1,60 @@
+.features {
+    padding: 4rem 1rem;
+    background-color: var(--primary-color);
+    min-height: 400px;
+}
+
+.features-inner {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .features-inner {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.feature-card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* Animation initial state */
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.feature-card.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+    /* Apply delay based on the inline order variable */
+    transition-delay: calc(var(--animation-order) * 0.2s);
+}
+
+.feature-image {
+    width: 100%;
+    aspect-ratio: 16/9;
+    margin-bottom: 1.5rem;
+    object-fit: cover;
+    /* Ensures image fills the area correctly */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.feature-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.feature-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-dark);
+}

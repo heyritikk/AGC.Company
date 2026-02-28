@@ -1,0 +1,166 @@
+/* HERO SECTION */
+.hero {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 4rem 1rem;
+    position: relative;
+    /* needed for absolute backgrounds */
+    overflow: hidden;
+    /* keep slides contained */
+}
+
+/* Background Slider */
+.hero-bg-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    /* send behind content */
+}
+
+.hero-bg-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    /* smooth crossfade */
+    will-change: opacity;
+}
+
+.hero-bg-slide.active {
+    opacity: 1;
+}
+
+.hero-content {
+    max-width: 800px;
+    z-index: 1;
+    /* ensure content sits above backgrounds */
+    position: relative;
+}
+
+
+
+.hero-title {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.liquid-line {
+    position: relative;
+    font-size: 3.5rem;
+    /* Adjusted for longer text */
+    font-weight: 800;
+    line-height: 1.1;
+    color: transparent;
+    -webkit-text-stroke: 2px white;
+    text-transform: uppercase;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+    .liquid-line {
+        font-size: 5rem;
+    }
+}
+
+.liquid-line::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-text-stroke: 0px transparent;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1000' height='200' viewBox='0 0 1000 200'%3E%3Cpath d='M0,100 C250,150 250,50 500,100 C750,150 750,50 1000,100 L1000,200 L0,200 Z' fill='%234ea0d8'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    background-size: 1000px 150%;
+    /* fixed width for smooth scrolling, height 150% so we have room to move it up and down */
+    background-position: 0px 80%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: wave-fill 6s ease-in-out infinite;
+}
+
+@keyframes wave-fill {
+    0% {
+        background-position: 0px 90%;
+        /* lower fill */
+    }
+
+    50% {
+        background-position: -500px 20%;
+        /* higher fill */
+    }
+
+    100% {
+        background-position: -1000px 90%;
+        /* lower fill, looping back */
+    }
+}
+
+.highlight-primary {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.hero-subtitle {
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #E5E7EB;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.btn {
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    /* Capsule shape */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    border: none;
+}
+
+.btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #fff;
+    /* better contrast on blue */
+}
+
+.btn-dark {
+    background-color: #000;
+    color: white;
+}

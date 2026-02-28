@@ -1,0 +1,33 @@
+<section class="hero">
+    <!-- Background Slider Elements -->
+    <div class="hero-bg-slider">
+        <div *ngFor="let img of heroImages; let i = index" class="hero-bg-slide"
+            [class.active]="i === currentImageIndex"
+            [style.backgroundImage]="'linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(' + img + ')'">
+        </div>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="container hero-content">
+        <div class="hero-title anime-liquid">
+            <div class="liquid-line" data-text="AGC On Board">AGC On Board</div>
+            <div class="liquid-line" data-text="Workforce Solutions L.L.C">Workforce Solutions L.L.C</div>
+        </div>
+        <p class="hero-subtitle">
+            AGC On Board Workforce Solutions L.L.C is a dynamic UAE-based manpower solutions company established in
+            2025. We provide highly trained, experienced, and project-ready manpower across civil construction, MEP
+            works, infrastructure development, and facilities management.
+        </p>
+        <div class="hero-actions">
+            <button class="btn btn-primary" routerLink="/about">Who We Are</button>
+            <button class="btn btn-dark" routerLink="/contact">Contact Us</button>
+        </div>
+    </div>
+</section>
+
+<app-features></app-features>
+<app-mission-vision></app-mission-vision>
+<app-about-preview></app-about-preview>
+<app-services></app-services>
+<app-projects-preview></app-projects-preview>
+<app-call-to-action></app-call-to-action>

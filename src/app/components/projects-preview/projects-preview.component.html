@@ -1,0 +1,21 @@
+<section class="projects-section" #projectsSection>
+    <div class="container">
+        <h2 class="section-title">
+            Our <span class="highlight">Projects</span>
+        </h2>
+
+        <div class="projects-grid">
+            <div class="project-card" *ngFor="let project of projects; let i = index" [class.animate-in]="isVisible"
+                [style.--animation-order]="i % 4 + 1">
+                <div class="project-image-wrapper">
+                    <img [src]="project.imageUrl" [alt]="project.title" class="project-image">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">{{ project.title }}</h3>
+                    <p class="project-description">{{ project.description }}</p>
+                    <button class="btn-read-more" routerLink="/projects">Read more</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

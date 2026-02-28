@@ -1,0 +1,113 @@
+/* View All Projects Button */
+.view-all-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 4rem 0;
+    background-color: #ffffff;
+}
+
+.btn-view-all {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 50px;
+    /* Capsule shape */
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-view-all:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    background-color: var(--blue-accent);
+}
+
+/* Middle Image Banner */
+.cta-banner {
+    min-height: 400px;
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ffffff;
+    padding: 4rem 1rem;
+}
+
+.banner-title {
+    color: #ffffff;
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
+}
+
+.banner-subtitle {
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #E5E7EB;
+}
+
+/* Bottom Contact Banner */
+.contact-banner {
+    background-color: var(--primary-color);
+    padding: 3rem 0;
+    border-top: 2px solid #ffffff;
+}
+
+.contact-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.contact-text {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+}
+
+.btn-contact {
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 50px;
+    /* Capsule shape */
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-contact:hover {
+    background-color: #333333;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .banner-title {
+        font-size: 2rem;
+    }
+
+    .contact-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .contact-text {
+        font-size: 1.5rem;
+    }
+}

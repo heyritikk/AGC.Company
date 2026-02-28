@@ -1,0 +1,198 @@
+<div class="admin-dashboard">
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <svg class="agc-logo" width="40" height="40" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path d="M25 70V40l15-10v40h-7V50h-1v20h-7z" fill="#4ea0d8" />
+                <path d="M44 70V20l15-10v25h-6V24l-3 2v38h9V45h-6v-6h12v31H44z" fill="#d83a32" />
+                <path d="M65 70V30l16 10v12h-6v-9l-4-2.5V70h6V58h4v12H65z" fill="#4ea0d8" />
+                <path d="M5 80q45-15 90 0l-5 4q-40-14-80 0l-5-4z" fill="#d83a32" />
+            </svg>
+            <h3>Admin Portal</h3>
+        </div>
+        <ul class="nav-menu">
+            <li [class.active]="activeTab === 'jobs'" (click)="setTab('jobs')">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                    </path>
+                </svg>
+                Manage Jobs
+            </li>
+            <li [class.active]="activeTab === 'applications'" (click)="setTab('applications')">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                    </path>
+                </svg>
+                Job Applications
+            </li>
+            <li [class.active]="activeTab === 'contact'" (click)="setTab('contact')">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                    </path>
+                </svg>
+                Contact Queries
+            </li>
+        </ul>
+        <div class="logout-wrapper">
+            <button class="btn-logout" (click)="logout()">Logout</button>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <!-- Manage Jobs Tab -->
+        <div *ngIf="activeTab === 'jobs'" class="tab-pane">
+            <div class="header-action">
+                <h2>Job Openings</h2>
+                <button class="btn btn-primary" (click)="toggleNewJobForm()">+ Add New Job</button>
+            </div>
+
+            <!-- Add Job Form -->
+            <div class="add-job-card" *ngIf="showAddJobForm">
+                <h3>Create New Job Posting</h3>
+                <form (ngSubmit)="submitNewJob()" #newJobForm="ngForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Job Title</label>
+                            <input type="text" name="title" [(ngModel)]="newJob.title" required
+                                placeholder="e.g. Senior Civil Engineer">
+                        </div>
+                        <div class="form-group">
+                            <label>Category</label>
+                            <input type="text" name="category" [(ngModel)]="newJob.category" required
+                                placeholder="e.g. Civil & Construction">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Location</label>
+                            <input type="text" name="location" [(ngModel)]="newJob.location" required
+                                placeholder="e.g. Sharjah, UAE">
+                        </div>
+                        <div class="form-group">
+                            <label>Employment Type</label>
+                            <select name="type" [(ngModel)]="newJob.type" required>
+                                <option value="Full-time">Full-time</option>
+                                <option value="Part-time">Part-time</option>
+                                <option value="Contract">Contract</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea name="description" [(ngModel)]="newJob.description" required rows="3"></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" (click)="toggleNewJobForm()">Cancel</button>
+                        <button type="submit" class="btn btn-primary" [disabled]="newJobForm.invalid">Save Job</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Category</th>
+                            <th>Location</th>
+                            <th>Type</th>
+                            <th>Posted Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let job of jobOpenings">
+                            <td><strong>{{ job.title }}</strong></td>
+                            <td><span class="badge blue">{{ job.category }}</span></td>
+                            <td>{{ job.location }}</td>
+                            <td>{{ job.type }}</td>
+                            <td>{{ job.createdAt | date:'MMM dd, yyyy' }}</td>
+                            <td>
+                                <button class="btn-icon delete" (click)="deleteJob(job.id)" title="Delete Job">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
+                                        </path>
+                                    </svg>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr *ngIf="jobOpenings.length === 0">
+                            <td colspan="6" class="text-center empty-state">No job openings found.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Job Applications Tab -->
+        <div *ngIf="activeTab === 'applications'" class="tab-pane">
+            <div class="header-action">
+                <h2>Submitted Applications</h2>
+            </div>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Applicant Name</th>
+                            <th>Applied Job ID</th>
+                            <th>Email</th>
+                            <th>Mobile Number</th>
+                            <th>Country</th>
+                            <th>Applied Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let app of applications">
+                            <td><strong>{{ app.firstName }} {{ app.lastName }}</strong></td>
+                            <td><span class="badge gray">{{ app.jobId }}</span></td>
+                            <td>{{ app.email }}</td>
+                            <td>{{ app.mobileNumber }}</td>
+                            <td>{{ app.country }}</td>
+                            <td>{{ app.appliedAt | date:'short' }}</td>
+                        </tr>
+                        <tr *ngIf="applications.length === 0">
+                            <td colspan="6" class="text-center empty-state">No applications have been submitted yet.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Contact Queries Tab -->
+        <div *ngIf="activeTab === 'contact'" class="tab-pane">
+            <div class="header-action">
+                <h2>Contact Form Submissions</h2>
+            </div>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Sender Name</th>
+                            <th>Email</th>
+                            <th>Topic</th>
+                            <th>Message Preview</th>
+                            <th>Date Received</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let msg of contactMessages">
+                            <td><strong>{{ msg.firstName }} {{ msg.lastName }}</strong></td>
+                            <td>{{ msg.email }}</td>
+                            <td><span class="badge red">{{ msg.helpTopic || 'General Inquiry' }}</span></td>
+                            <td class="text-truncate" [title]="msg.message">{{ msg.message }}</td>
+                            <td>{{ msg.createdAt | date:'short' }}</td>
+                        </tr>
+                        <tr *ngIf="contactMessages.length === 0">
+                            <td colspan="5" class="text-center empty-state">No contact messages received yet.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>

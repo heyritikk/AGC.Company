@@ -1,0 +1,137 @@
+.top-header {
+    background: white;
+    padding: 1.5rem 0;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.top-header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 0.05rem;
+}
+
+.logo-tagline {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-left: 1.5rem;
+    border-left: 2px solid #E5E7EB;
+    padding-left: 1.5rem;
+    color: var(--text-dark);
+}
+
+.contact-info {
+    display: flex;
+    gap: 2.5rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.icon.blue {
+    width: 24px;
+    height: 24px;
+    color: var(--primary-color);
+}
+
+.info-text {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.875rem;
+}
+
+.info-text strong {
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.info-text span {
+    color: #6B7280;
+}
+
+/* NAVBAR */
+.navbar {
+    background-color: #000;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: white;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 1.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--primary-color);
+}
+
+.chevron {
+    width: 16px;
+    height: 16px;
+}
+
+.quote-btn-wrapper {
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 2rem;
+    margin: 1rem 0;
+    /* Add margin so it doesn't touch navbar bounds making capsule obvious */
+    border-radius: 50px;
+    /* Capsule shape */
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.quote-btn-wrapper:hover {
+    opacity: 1;
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn-quote {
+    background: transparent;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
