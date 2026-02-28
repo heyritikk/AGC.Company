@@ -36,7 +36,7 @@ export class CareersComponent {
   }
 
   loadJobs() {
-    this.http.get<any[]>('http://localhost:5200/api/jobs').subscribe({
+    this.http.get<any[]>('https://agc-company.onrender.com/api/Jobs').subscribe({
       next: (data) => this.jobs = data,
       error: (err) => console.error('Failed to load active jobs', err)
     });
@@ -67,7 +67,7 @@ export class CareersComponent {
       ...this.applicationData
     };
 
-    const apiUrl = 'http://localhost:5200/api/careers/apply';
+    const apiUrl = 'https://agc-company.onrender.com/api/careers/apply';
 
     this.http.post(apiUrl, payload).subscribe({
       next: (response) => {

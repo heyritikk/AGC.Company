@@ -26,7 +26,7 @@ export class AdminLoginComponent {
     this.isLoading = true;
     this.errorMessage = '';
 
-    const apiUrl = 'http://localhost:5200/api/auth/login';
+    const apiUrl = 'https://agc-company.onrender.com/api/Auth/login';
 
     this.http.post<any>(apiUrl, this.credentials).subscribe({
       next: (response) => {

@@ -27,7 +27,7 @@ export class AdminComponent implements OnInit {
     description: ''
   };
 
-  private apiUrl = 'http://localhost:5200/api';
+  private apiUrl = 'https://agc-company.onrender.com/api';
 
   constructor(private http: HttpClient, private router: Router) { }
 

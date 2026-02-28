@@ -33,7 +33,7 @@ export class ContactComponent {
     this.submitError = false;
 
     // TODO: Update port based on launchSettings.json
-    this.http.post('http://localhost:5200/api/contact', this.contactData).subscribe({
+    this.http.post('https://agc-company.onrender.com/api/Contact', this.contactData).subscribe({
       next: (res) => {
         this.submitSuccess = true;
         this.isSubmitting = false;
